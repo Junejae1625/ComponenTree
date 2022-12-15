@@ -43,7 +43,7 @@ const Loading = () => {
   return (
     <Wrapper>
       <p>
-        <Title>Loading</Title>
+        <Title>LoadingPage</Title>
         <Spinner />
         <LoadingText>Loading...</LoadingText>
       </p>
