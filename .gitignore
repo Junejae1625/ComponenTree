@@ -11,6 +11,16 @@
 # production
 /build
 
+/.husky
+
+/.vscode
+
+/package-lock.json
+
+/yarn.lock
+
+/tsconfig.json
+
 # misc
 .DS_Store
 .env.local
