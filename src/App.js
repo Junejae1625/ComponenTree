@@ -1,11 +1,12 @@
 // import logo from './logo.svg'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingPage from "./pages/Loading";
+import RendingPage from "./pages/Rending";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,9 +24,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/loading" element={<LoadingPage />}></Route>
+          <Route path="/rending" element={<RendingPage />}></Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </main>
   );
 }
 
