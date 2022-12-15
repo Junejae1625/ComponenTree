@@ -45,7 +45,7 @@ const Loading = () => {
       <p>
         <Title>Loading</Title>
         <Spinner />
-        <LoadingText>Loading...</LoadingText>
+        <LoadingText>Loading...중</LoadingText>
       </p>
     </Wrapper>
   );
