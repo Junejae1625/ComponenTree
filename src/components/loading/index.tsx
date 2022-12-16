@@ -5,7 +5,7 @@ const Loading = () => {
       <p>
         <Title>LoadingPage</Title>
         <Spinner />
-        <LoadingText>Loading...중</LoadingText>
+        <LoadingText>Loading...</LoadingText>
       </p>
     </Wrapper>
   );
