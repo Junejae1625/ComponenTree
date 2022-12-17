@@ -29,13 +29,13 @@ const RendingFooterGraph = () => {
   const onMouseLeaveGraph = () => {
     setTimeout(() => {
       setIsOver(false);
-    }, 400);
+    }, 500);
   };
 
   return (
     <FooterGraph
       isOver={isOver}
-      screenY={Number(90 - Math.ceil(screenY * 10))}
+      screenY={Number(90 - Math.ceil(screenY * 35))}
       onMouseOver={onMouseEnterGraph}
       onMouseLeave={onMouseLeaveGraph}
     ></FooterGraph>

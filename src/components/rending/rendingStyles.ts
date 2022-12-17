@@ -14,7 +14,7 @@ export const HeaderTitle = styled.h1`
   margin: 0;
   line-height: 3.1rem;
   padding-top: 1rem;
-
+  text-align: center;
   .headerChild {
     display: inline-block;
     transform: translateY(-0.1rem);
