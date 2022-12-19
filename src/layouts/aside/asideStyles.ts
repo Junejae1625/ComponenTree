@@ -1,8 +1,15 @@
 import styled from "styled-components";
+interface isClickProps {
+  isClickList: boolean;
+}
 export const Wrapper = styled.div`
   width: 280px;
-  height: 96vh;
-  background-color: #323244;
+  height: 95.6vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(50, 50, 68, 0.9) 60%,
+    rgba(25, 25, 34, 1) 100%
+  );
   border: none;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem 0rem 0rem 2rem;
@@ -26,12 +33,7 @@ export const RedTitle = styled.span`
 `;
 export const Aside = styled.aside`
   width: 100%;
-  height: 70vh;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
+  height: 72%;
   z-index: 100;
   overflow-x: hidden;
   ::-webkit-scrollbar {
@@ -39,15 +41,24 @@ export const Aside = styled.aside`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin-bottom: 0.5rem;
 `;
 
 export const ComponentLists = styled.div`
   color: #fff;
   width: 100%;
-  /* background-color: #202329; */
   padding: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   z-index: 2;
+  background-color: ${(props: isClickProps) =>
+    props.isClickList ? "#202329" : ""};
+  margin-left: ${(props: isClickProps) => (props.isClickList ? "15px" : "")};
+
+  cursor: pointer;
+  transition: 0.2s;
+  :hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const ScrollWrapper = styled.div`

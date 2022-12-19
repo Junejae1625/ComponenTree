@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { useEffect, useState } from "react";
 import {
   Aside,
   ComponentLists,
@@ -10,8 +10,28 @@ import {
   Wrapper,
 } from "./asideStyles";
 import { v4 as uuidv4 } from "uuid";
+import { useScrollViewHooks } from "../../hooks/useScrollView";
 
-const LayoutHeader = () => {
+const data = new Array(23).fill({ name: "component", isClick: false });
+
+const LayoutAside = () => {
+  const [componentList, setComponentList] = useState<any[]>([]);
+  const [isClickList, setIsClickList] = useState<boolean[]>([]);
+  const { scroll, onClickScrollUp, onClickScrollDown } = useScrollViewHooks();
+
+  useEffect(() => {
+    if (data) {
+      setComponentList(data);
+      setIsClickList(new Array(data.length).fill(false));
+    }
+  }, [data]);
+
+  const onClickList = (i: number) => () => {
+    const temp = new Array(data.length).fill(false);
+    temp[i] = !temp[i];
+    setIsClickList(temp);
+  };
+
   return (
     <Wrapper>
       <Header>
@@ -20,19 +40,39 @@ const LayoutHeader = () => {
         <GreenTitle>T</GreenTitle>
         ree
       </Header>
-      <Aside>
-        {new Array(30).fill("component").map((el, i) => (
-          <Fragment key={uuidv4()}>
-            <ComponentLists>{el + i}</ComponentLists>
-          </Fragment>
+
+      <Aside id="asideContainer">
+        {componentList.map((el, i) => (
+          <div key={uuidv4()}>
+            <ComponentLists
+              id={String(i)}
+              isClickList={isClickList[i]}
+              onClick={onClickList(i)}
+            >
+              {el.name + i}
+            </ComponentLists>
+          </div>
         ))}
       </Aside>
-
       <ScrollWrapper>
-        <ScrollSVG src="/public_assets/upScroll.svg" alt="scrollUp" />
-        <ScrollSVG src="/public_assets/downScroll.svg" alt="scrollDown" />
+        {scroll > 0 && (
+          <ScrollSVG
+            onClick={onClickScrollUp}
+            src="/public_assets/upScroll.svg"
+            alt="scrollUp"
+          />
+        )}
+        {scroll + 7 < data?.length ? (
+          <ScrollSVG
+            onClick={onClickScrollDown}
+            src="/public_assets/downScroll.svg"
+            alt="scrollDown"
+          />
+        ) : (
+          <div style={{ display: "inline-block", width: "3.125rem" }}></div>
+        )}
       </ScrollWrapper>
     </Wrapper>
   );
 };
-export default LayoutHeader;
+export default LayoutAside;
