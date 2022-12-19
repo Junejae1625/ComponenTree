@@ -35,7 +35,7 @@ const Rending = () => {
           </InputButtonWrapper>
         </Article>
         <Footer>
-          {new Array(180).fill(0).map((el, i) => (
+          {new Array(200).fill(0).map((el, i) => (
             <Fragment key={uuidv4()}>
               <RendingFooterGraph />
             </Fragment>
