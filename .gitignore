@@ -19,7 +19,6 @@
 
 /yarn.lock
 
-/tsconfig.json
 
 # misc
 .DS_Store
