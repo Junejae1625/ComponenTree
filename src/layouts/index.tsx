@@ -6,6 +6,9 @@ import LayoutHeader from "./header";
 interface ComponentProps {
   children: ReactNode;
 }
+interface WrapperProps {
+  customStyle?: boolean;
+}
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -17,7 +20,7 @@ const MainWrapper = styled.div`
 `;
 const MainDiv = styled.div`
   height: 85%;
-  padding: 0 2rem;
+  padding: ${(props: WrapperProps) => (props.customStyle ? "" : "0 2rem")};
 `;
 const Main = styled.div`
   width: 100%;
@@ -36,7 +39,8 @@ const LayoutPage = ({ children }: ComponentProps) => {
       {!isHiddenLayout && <LayoutAside />}
       <MainWrapper>
         {!isHiddenLayout && <LayoutHeader />}
-        <MainDiv>
+
+        <MainDiv customStyle={isHiddenLayout}>
           <Main>{children}</Main>
         </MainDiv>
       </MainWrapper>
