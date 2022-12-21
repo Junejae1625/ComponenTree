@@ -50,7 +50,7 @@ export const InputButtonWrapper = styled.div`
   justify-content: space-between;
   background-color: #fff;
   padding: 2px 12px;
-  z-index: 9999;
+  z-index: 100;
 `;
 
 export const RepoInput = styled.input`
@@ -90,4 +90,46 @@ export const Footer = styled.footer`
   justify-content: space-between;
   position: absolute;
   bottom: 0;
+`;
+export const SubWrapper = styled.section`
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  z-index: 101;
+`;
+export const SubInfo = styled.div`
+  width: 100%;
+  max-width: 800px;
+  text-align: start;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.3rem;
+  padding-top: 48px;
+`;
+export const ProjectButton = styled.button`
+  width: 180px;
+  height: 50px;
+  color: #fff;
+  background-color: #3e3f42;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border: none;
+  margin-right: 30px;
+  cursor: pointer;
+  :hover {
+    border: 1px solid white;
+  }
+`;
+export const ProjectButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+export const HoverText = styled.div`
+  width: 400px;
+  color: #ffd74a;
+  text-align: center;
+  z-index: 0;
 `;

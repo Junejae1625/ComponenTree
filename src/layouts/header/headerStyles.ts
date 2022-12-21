@@ -30,7 +30,7 @@ export const Lists = styled.div`
   transition: 0.2s;
   :hover {
     background-color: rgba(132, 209, 148, 0.7);
-    color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     transform: scale(1.02);
   }
 `;
