@@ -4,7 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: ["plugin:react/recommended", "standard", "prettier"],
-  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,8 +11,9 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
   },
 };

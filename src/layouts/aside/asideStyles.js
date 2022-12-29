@@ -1,7 +1,5 @@
 import styled from "styled-components";
-interface isClickProps {
-  isClickList: boolean;
-}
+
 export const Wrapper = styled.div`
   width: 280px;
   height: 95.6vh;
@@ -50,15 +48,10 @@ export const ComponentLists = styled.div`
   padding: 0.8rem;
   margin-bottom: 0.8rem;
   z-index: 2;
-  background-color: ${(props: isClickProps) =>
-    props.isClickList ? "#202329" : ""};
-  margin-left: ${(props: isClickProps) => (props.isClickList ? "15px" : "")};
-
-  cursor: pointer;
+  background-color: ${(props) => (props.isClickList ? "#202329" : "")};
+  margin-left: ${(props) => (props.isClickList ? "15px" : "")};
+  cursor: not-allowed;
   transition: 0.2s;
-  :hover {
-    transform: scale(1.02);
-  }
 `;
 
 export const ScrollWrapper = styled.div`

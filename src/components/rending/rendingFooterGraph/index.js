@@ -2,18 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useMoseMove } from "../../../hooks/useMouseMove";
 
-interface MouseOverProps {
-  isOver: boolean;
-  screenY: number;
-}
-
 const FooterGraph = styled.div`
   width: 5px;
   height: 92vh;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0)
-      ${(props: MouseOverProps) => (props.isOver ? props.screenY : 94)}%,
+    rgba(0, 0, 0, 0) ${(props) => (props.isOver ? props.screenY : 94)}%,
     rgb(228, 87, 27) 96%,
     yellow 100%
   );

@@ -1,10 +1,10 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 export const useMouseHover = () => {
   const [isHover, setIsHover] = useState(false);
   const [hoverWhat, setHoverWhat] = useState("");
 
-  const onMouseOn = (e: MouseEvent<HTMLButtonElement>) => {
+  const onMouseOn = (e) => {
     setIsHover(true);
     if (e.currentTarget.value === "React") {
       setHoverWhat("*app.js 혹은 app.tsx를 탐색합니다");
