@@ -8,12 +8,13 @@ const FooterGraph = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) ${(props) => (props.isOver ? props.screenY : 94)}%,
-    rgb(228, 87, 27) 96%,
-    yellow 100%
+    ${(props) => (props.choose ? " rgb(51, 153, 255)" : " rgb(228, 87, 27)")}
+      96%,
+    ${(props) => (props.choose ? "rgba(179, 217, 255)" : "yellow")} 100%
   );
 `;
 
-const RendingFooterGraph = () => {
+const RendingFooterGraph = ({ choose }) => {
   const [isOver, setIsOver] = useState(false);
   const [screenY] = useMoseMove();
   const onMouseEnterGraph = () => {
@@ -32,6 +33,7 @@ const RendingFooterGraph = () => {
       screenY={Number(90 - Math.ceil(screenY * 35))}
       onMouseOver={onMouseEnterGraph}
       onMouseLeave={onMouseLeaveGraph}
+      choose={choose}
     ></FooterGraph>
   );
 };

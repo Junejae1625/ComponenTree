@@ -71,7 +71,7 @@ const Rending = () => {
         <Footer>
           {new Array(200).fill(0).map((el, i) => (
             <Fragment key={uuidv4()}>
-              <RendingFooterGraph />
+              <RendingFooterGraph choose={first} />
             </Fragment>
           ))}
         </Footer>
