@@ -1,14 +1,8 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import LayoutAside from "./aside";
 import LayoutHeader from "./header";
-interface ComponentProps {
-  children: ReactNode;
-}
-interface WrapperProps {
-  customStyle?: boolean;
-}
+
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -20,7 +14,7 @@ const MainWrapper = styled.div`
 `;
 const MainDiv = styled.div`
   height: 85%;
-  padding: ${(props: WrapperProps) => (props.customStyle ? "" : "0 2rem")};
+  padding: ${(props) => (props.customStyle ? "" : "0 2rem")};
 `;
 const Main = styled.div`
   width: 100%;
@@ -30,7 +24,7 @@ const Main = styled.div`
 `;
 const hiddenLayout = ["/loading", "/"];
 
-const LayoutPage = ({ children }: ComponentProps) => {
+const LayoutPage = ({ children }) => {
   const location = useLocation();
   const isHiddenLayout = hiddenLayout.includes(location.pathname);
 

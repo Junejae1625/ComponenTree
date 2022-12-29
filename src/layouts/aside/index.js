@@ -11,26 +11,18 @@ import {
 } from "./asideStyles";
 import { v4 as uuidv4 } from "uuid";
 import { useScrollViewHooks } from "../../hooks/useScrollView";
-
-const data = new Array(23).fill({ name: "component", isClick: false });
-
+import { resultNodes } from "../../datas/index";
+import { currentComponentIndexState } from "../../recoilStore";
+import { useRecoilState } from "recoil";
 const LayoutAside = () => {
-  const [componentList, setComponentList] = useState<any[]>([]);
-  const [isClickList, setIsClickList] = useState<boolean[]>([]);
+  const [componentList, setComponentList] = useState([]);
   const { scroll, onClickScrollUp, onClickScrollDown } = useScrollViewHooks();
-
+  const [currentComponentIndex] = useRecoilState(currentComponentIndexState);
   useEffect(() => {
-    if (data) {
-      setComponentList(data);
-      setIsClickList(new Array(data.length).fill(false));
+    if (resultNodes) {
+      setComponentList(resultNodes);
     }
-  }, [data]);
-
-  const onClickList = (i: number) => () => {
-    const temp = new Array(data.length).fill(false);
-    temp[i] = !temp[i];
-    setIsClickList(temp);
-  };
+  }, [resultNodes, currentComponentIndex]);
 
   return (
     <Wrapper>
@@ -46,10 +38,9 @@ const LayoutAside = () => {
           <div key={uuidv4()}>
             <ComponentLists
               id={String(i)}
-              isClickList={isClickList[i]}
-              onClick={onClickList(i)}
+              isClickList={i === currentComponentIndex}
             >
-              {el.name + i}
+              {el.componentName}
             </ComponentLists>
           </div>
         ))}
@@ -62,7 +53,7 @@ const LayoutAside = () => {
             alt="scrollUp"
           />
         )}
-        {scroll + 7 < data?.length ? (
+        {scroll + 7 < componentList?.length ? (
           <ScrollSVG
             onClick={onClickScrollDown}
             src="/public_assets/downScroll.svg"
