@@ -7,9 +7,9 @@ export const useMouseHover = () => {
   const onMouseOn = (e) => {
     setIsHover(true);
     if (e.currentTarget.value === "React") {
-      setHoverWhat("* app.js 혹은 app.tsx를 탐색합니다");
+      setHoverWhat("src/App.js 혹은 src/App.tsx를 탐색합니다");
     } else {
-      setHoverWhat("* root/pages 폴더를 탐색합니다.");
+      setHoverWhat("root/pages 폴더를 탐색합니다.");
     }
   };
   const onMouseLeave = () => {
