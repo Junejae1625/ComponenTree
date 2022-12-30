@@ -4,7 +4,7 @@ import { resulstDataState } from "../../recoilStore/index";
 export const useOnClickRequest = (url, type) => {
   const [, setResultData] = useRecoilState(resulstDataState);
   const onClickUpload = async () => {
-    type = type ? "_app.tsx" : "pages";
+    type = type ? "src/App.tsx" : "pages";
     const result = await axios.post("http://localhost:4000/upload", {
       url,
       type,
