@@ -2,7 +2,7 @@ import { Wrapper, Lists, GraphImg } from "./headerStyles";
 import { Link, useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 const listData = [
-  { name: "Graph 1", link: "/directed" },
+  { name: "Graph 1", link: "/graph1" },
   { name: "Graph 2", link: "/graph2" },
   { name: "Graph 3", link: "/graph3" },
 ];

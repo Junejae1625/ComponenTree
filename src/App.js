@@ -5,6 +5,7 @@ import RendingPage from "./pages/Rending";
 import "./App.css";
 import ForceDirectedGraphPage from "./pages/ForceDirectedGraph";
 import { RecoilRoot } from "recoil";
+import BarGraphPage from "./pages/BarGraph";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
               <Route path="/loading" element={<LoadingPage />}></Route>
               <Route path="/" element={<RendingPage />}></Route>
               <Route
-                path="/directed"
+                path="/graph1"
                 element={<ForceDirectedGraphPage />}
               ></Route>
+              <Route path="/graph3" element={<BarGraphPage />}></Route>
             </Routes>
           </LayoutPage>
         </RecoilRoot>
