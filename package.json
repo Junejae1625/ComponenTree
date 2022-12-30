@@ -6,13 +6,15 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.2",
     "d3": "^7.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
-    "typescript": "^4.9.4",
+    "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,9 +43,6 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.26",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
@@ -53,7 +52,8 @@
     "eslint-plugin-react": "^7.31.11",
     "husky": ">=6",
     "lint-staged": ">=10",
-    "prettier": "2.8.1"
+    "prettier": "2.8.1",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "husky": {
     "hooks": {
@@ -61,6 +61,6 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": "npx eslint ."
+    "*.js": "npx eslint ."
   }
 }

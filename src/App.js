@@ -1,31 +1,31 @@
-// import logo from './logo.svg'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LayoutPage from "./layouts";
 import LoadingPage from "./pages/Loading";
+import RendingPage from "./pages/Rending";
 import "./App.css";
+import ForceDirectedGraphPage from "./pages/ForceDirectedGraph";
+import { RecoilRoot } from "recoil";
+import BarGraphPage from "./pages/BarGraph";
 
 function App() {
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+    <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/loading" element={<LoadingPage />}></Route>
-        </Routes>
+        <RecoilRoot>
+          <LayoutPage>
+            <Routes>
+              <Route path="/loading" element={<LoadingPage />}></Route>
+              <Route path="/" element={<RendingPage />}></Route>
+              <Route
+                path="/graph1"
+                element={<ForceDirectedGraphPage />}
+              ></Route>
+              <Route path="/graph3" element={<BarGraphPage />}></Route>
+            </Routes>
+          </LayoutPage>
+        </RecoilRoot>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
