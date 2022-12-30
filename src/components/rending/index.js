@@ -14,24 +14,19 @@ import {
   HoverText,
 } from "./rendingStyles";
 import { v4 as uuidv4 } from "uuid";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import RendingFooterGraph from "./rendingFooterGraph";
 import { useMouseHover } from "../../hooks/useMouseHover";
 import { useChoiceState } from "../../hooks/useChoiceState";
 import ProjectButtons from "../commons/button/projectButton";
-import axios from "axios";
+
+import { useOnChangeUrl } from "../../hooks/useOnChangeUrl";
+import { useOnClickRequest } from "../../hooks/useOnClickRequest";
 const Rending = () => {
-  const [url, setUrl] = useState("");
   const { first, second, onClickFirst, onClickSecond } = useChoiceState();
   const { isHover, hoverWhat, onMouseOn, onMouseLeave } = useMouseHover();
-
-  const onChangeUrl = (e) => {
-    setUrl(e.currentTarget.value);
-  };
-  const onClickUpload = async () => {
-    const result = await axios.post("http://localhost:4000/upload", { url });
-    console.log(result);
-  };
+  const [url, onChangeUrl] = useOnChangeUrl();
+  const { onClickUpload } = useOnClickRequest(url, first);
   return (
     <>
       <Wrapper>
@@ -44,11 +39,11 @@ const Rending = () => {
           <Info>Please typing your Github Repo</Info>
           <InputButtonWrapper>
             <RepoInput type="text" onChange={onChangeUrl} />
-            <RepoButton>
+            <RepoButton onClick={onClickUpload}>
               <span>
                 <img src="/public_assets/buttonArrow.svg"></img>
               </span>
-              <span onClick={onClickUpload}>Go</span>
+              <span>Go</span>
             </RepoButton>
           </InputButtonWrapper>
           <SubWrapper>
