@@ -48,7 +48,7 @@ const ForceDirectedGraph = () => {
       .force("charge", forceManyBody())
       .force(
         "link",
-        forceLink(links).distance((d) => 65)
+        forceLink(links).distance((d) => 60)
       )
       .force(
         "center",
@@ -95,7 +95,7 @@ const ForceDirectedGraph = () => {
       .attr("text-anchor", "start")
       .attr("alignment-baseline", "bottom")
       .attr("font-weight", "bold")
-      .style("pointer-events", "fill")
+      .style("pointer-events", "none")
       .attr("dy", "15%")
       .text((data) => data.componentName);
 
