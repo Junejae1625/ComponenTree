@@ -14,7 +14,7 @@ import {
   HoverText,
 } from "./rendingStyles";
 import { v4 as uuidv4 } from "uuid";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import RendingFooterGraph from "./rendingFooterGraph";
 import { useMouseHover } from "../../hooks/useMouseHover";
 import { useChoiceState } from "../../hooks/useChoiceState";
@@ -27,6 +27,11 @@ const Rending = () => {
   const { isHover, hoverWhat, onMouseOn, onMouseLeave } = useMouseHover();
   const [url, onChangeUrl] = useOnChangeUrl();
   const { onClickUpload } = useOnClickRequest(url, first);
+  useEffect(() => {
+    if (localStorage.getItem("resultData") === null || undefined) {
+      localStorage.setItem("resultData", []);
+    }
+  });
   return (
     <>
       <Wrapper>
