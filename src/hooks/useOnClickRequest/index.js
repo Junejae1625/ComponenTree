@@ -1,16 +1,20 @@
 import axios from "axios";
-import { useRecoilState } from "recoil";
-import { resulstDataState } from "../../recoilStore/index";
+
+import { useNavigate } from "react-router-dom";
 export const useOnClickRequest = (url, type) => {
-  const [, setResultData] = useRecoilState(resulstDataState);
+  const navigate = useNavigate();
+  const moveGraph = () => {
+    navigate("/graph1");
+  };
   const onClickUpload = async () => {
     type = type ? "src/App.tsx" : "pages";
     const result = await axios.post("http://localhost:4000/upload", {
       url,
       type,
     });
-    setResultData(result.data);
-    return result.data;
+
+    localStorage.setItem("resultData", JSON.stringify(result.data));
+    return moveGraph();
   };
 
   return { onClickUpload };
