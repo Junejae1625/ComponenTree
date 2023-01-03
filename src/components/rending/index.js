@@ -26,10 +26,10 @@ const Rending = () => {
   const { first, second, onClickFirst, onClickSecond } = useChoiceState();
   const { isHover, hoverWhat, onMouseOn, onMouseLeave } = useMouseHover();
   const [url, onChangeUrl] = useOnChangeUrl();
-  const { onClickUpload } = useOnClickRequest(url, first);
+  const { onClickUpload, submitting } = useOnClickRequest(url, first);
   useEffect(() => {
     if (localStorage.getItem("resultData") === null || undefined) {
-      localStorage.setItem("resultData", []);
+      localStorage.setItem("resultData", "[]");
     }
   });
   return (
@@ -44,7 +44,7 @@ const Rending = () => {
           <Info>Please typing your Github Repo</Info>
           <InputButtonWrapper>
             <RepoInput type="text" onChange={onChangeUrl} />
-            <RepoButton onClick={onClickUpload}>
+            <RepoButton disabled={submitting} onClick={onClickUpload}>
               <span>
                 <img src="/public_assets/buttonArrow.svg"></img>
               </span>

@@ -14,9 +14,11 @@ import { useScrollViewHooks } from "../../hooks/useScrollView";
 import { resultNodes } from "../../datas/index";
 import { currentComponentIndexState } from "../../recoilStore";
 import { useRecoilState } from "recoil";
+import { Link } from "react-router-dom";
 const LayoutAside = () => {
   const [componentList, setComponentList] = useState([]);
-  const { scroll, onClickScrollUp, onClickScrollDown } = useScrollViewHooks();
+  const { scroll, currentHeight, onClickScrollUp, onClickScrollDown } =
+    useScrollViewHooks();
   const [currentComponentIndex] = useRecoilState(currentComponentIndexState);
   useEffect(() => {
     if (resultNodes) {
@@ -27,10 +29,12 @@ const LayoutAside = () => {
   return (
     <Wrapper>
       <Header>
-        <GreenTitle>C</GreenTitle>om<RedTitle>p</RedTitle>onen
-        <br />
-        <GreenTitle>T</GreenTitle>
-        ree
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <GreenTitle>C</GreenTitle>om<RedTitle>p</RedTitle>onen
+          <br />
+          <GreenTitle>T</GreenTitle>
+          ree
+        </Link>
       </Header>
 
       <Aside id="asideContainer">
@@ -53,7 +57,7 @@ const LayoutAside = () => {
             alt="scrollUp"
           />
         )}
-        {scroll + 7 < componentList?.length ? (
+        {scroll + currentHeight < componentList?.length ? (
           <ScrollSVG
             onClick={onClickScrollDown}
             src="/public_assets/downScroll.svg"
