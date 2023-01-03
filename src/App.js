@@ -6,6 +6,7 @@ import "./App.css";
 import ForceDirectedGraphPage from "./pages/ForceDirectedGraph";
 import { RecoilRoot } from "recoil";
 import BarGraphPage from "./pages/BarGraph";
+import PieGraphPage from "./pages/PieGraph";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 path="/graph1"
                 element={<ForceDirectedGraphPage />}
               ></Route>
+              <Route path="/graph2" element={<PieGraphPage />}></Route>
               <Route path="/graph3" element={<BarGraphPage />}></Route>
             </Routes>
           </LayoutPage>
