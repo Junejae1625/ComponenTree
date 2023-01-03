@@ -100,6 +100,7 @@ const ForceDirectedGraph = () => {
       .attr("text-anchor", "start")
       .attr("alignment-baseline", "bottom")
       .attr("font-weight", "bold")
+      .style("font-family", "sans-serif")
       .style("pointer-events", "none")
       .attr("dy", "15%")
       .text((data) => data.componentName);
