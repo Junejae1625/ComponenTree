@@ -15,6 +15,7 @@ export const HeaderTitle = styled.h1`
   line-height: 3.1rem;
   padding-top: 1rem;
   text-align: center;
+  cursor: default;
   .headerChild {
     display: inline-block;
     transform: translateY(-0.1rem);
@@ -62,7 +63,7 @@ export const RepoInput = styled.input`
   overflow: scroll;
 `;
 
-export const RepoButton = styled.div`
+export const RepoButton = styled.button`
   width: 75px;
   height: 40px;
   background-color: #2bad77;
@@ -106,6 +107,7 @@ export const SubInfo = styled.div`
   font-weight: 600;
   margin-bottom: 1.3rem;
   padding-top: 48px;
+  cursor: default;
 `;
 export const ProjectButton = styled.button`
   width: 180px;

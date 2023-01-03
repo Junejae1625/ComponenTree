@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
 import { useResizeObserver } from "../../hooks/useResizeObserver";
 import { Div, Svg } from "./pieGraphStyles";
+
 const PieGraph = () => {
   const divRef = useRef(null);
   const svgRef = useRef(null);
