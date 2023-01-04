@@ -33,7 +33,6 @@ const LayoutPage = ({ children }) => {
       {!isHiddenLayout && <LayoutAside />}
       <MainWrapper>
         {!isHiddenLayout && <LayoutHeader />}
-
         <MainDiv customStyle={isHiddenLayout}>
           <Main>{children}</Main>
         </MainDiv>
