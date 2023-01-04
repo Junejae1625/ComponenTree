@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.section`
   position: relative;
+  min-width: 1000px;
 `;
 export const Header = styled.header`
   width: 100%;
