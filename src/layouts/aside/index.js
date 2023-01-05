@@ -11,7 +11,6 @@ import {
 } from "./asideStyles";
 import { v4 as uuidv4 } from "uuid";
 import { useScrollViewHooks } from "../../hooks/useScrollView";
-import { resultNodes } from "../../datas/index";
 import { currentComponentIndexState } from "../../recoilStore";
 import { useRecoilState } from "recoil";
 import { Link } from "react-router-dom";
@@ -21,10 +20,11 @@ const LayoutAside = () => {
     useScrollViewHooks();
   const [currentComponentIndex] = useRecoilState(currentComponentIndexState);
   useEffect(() => {
-    if (resultNodes) {
-      setComponentList(resultNodes);
+    const result = JSON.parse(localStorage.getItem("resultData"));
+    if (result.resultNode) {
+      setComponentList(result.resultNode);
     }
-  }, [resultNodes, currentComponentIndex]);
+  }, [currentComponentIndex]);
 
   return (
     <Wrapper>
