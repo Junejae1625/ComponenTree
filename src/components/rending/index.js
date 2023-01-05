@@ -19,7 +19,6 @@ import RendingFooterGraph from "./rendingFooterGraph";
 import { useMouseHover } from "../../hooks/useMouseHover";
 import { useChoiceState } from "../../hooks/useChoiceState";
 import ProjectButtons from "../commons/button/projectButton";
-
 import { useOnChangeUrl } from "../../hooks/useOnChangeUrl";
 import { useOnClickRequest } from "../../hooks/useOnClickRequest";
 const Rending = () => {
@@ -27,6 +26,7 @@ const Rending = () => {
   const { isHover, hoverWhat, onMouseOn, onMouseLeave } = useMouseHover();
   const [url, onChangeUrl] = useOnChangeUrl();
   const { onClickUpload, submitting } = useOnClickRequest(url, first);
+
   useEffect(() => {
     if (localStorage.getItem("resultData") === null || undefined) {
       localStorage.setItem("resultData", "[]");
