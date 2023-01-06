@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { isCorrectUrl } from "../../components/validation/gitUrlValidation";
 import { getFirestore, collection, addDoc } from "firebase/firestore/lite";
 import { firebaseApp } from "../../libraries/firebase";
-import moment from "moment";
+
 export const useOnClickRequest = (url, type) => {
   const [submitting, isSubmitting] = useState(false);
   const navigate = useNavigate();
@@ -14,8 +14,7 @@ export const useOnClickRequest = (url, type) => {
     const next = "Next";
 
     const isCorrect = isCorrectUrl(url);
-    const date = new Date();
-    const time = moment(date).format("YYYY-MM-DD-HH");
+
     if (!isCorrect) return;
     try {
       isSubmitting(true);
@@ -31,7 +30,7 @@ export const useOnClickRequest = (url, type) => {
       await addDoc(componenTree, {
         url,
         type: type ? react : next,
-        time,
+        time: result?.data.time,
       });
       localStorage.setItem("resultData", JSON.stringify(result.data));
       isSubmitting(false);
