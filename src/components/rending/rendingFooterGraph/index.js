@@ -14,7 +14,7 @@ const FooterGraph = styled.div`
   );
 `;
 
-const RendingFooterGraph = ({ choose }) => {
+const RendingFooterGraph = ({ choose, role }) => {
   const [isOver, setIsOver] = useState(false);
   const [screenY] = useMoseMove();
   const onMouseEnterGraph = () => {
@@ -29,6 +29,7 @@ const RendingFooterGraph = ({ choose }) => {
 
   return (
     <FooterGraph
+      role={role}
       isOver={isOver}
       screenY={Number(90 - Math.ceil(screenY * 35))}
       onMouseOver={onMouseEnterGraph}

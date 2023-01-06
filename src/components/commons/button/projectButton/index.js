@@ -18,6 +18,7 @@ const ProjectButton = styled.button`
 `;
 
 const ProjectButtons = ({
+  role,
   isClick,
   value,
   onMouseOver,
@@ -26,6 +27,7 @@ const ProjectButtons = ({
 }) => {
   return (
     <ProjectButton
+      role={role}
       value={value}
       isClick={isClick}
       onMouseOver={onMouseOver}

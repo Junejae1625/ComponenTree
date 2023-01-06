@@ -43,8 +43,12 @@ const Rending = () => {
         <Article>
           <Info>Please typing your Github Repo</Info>
           <InputButtonWrapper>
-            <RepoInput type="text" onChange={onChangeUrl} />
-            <RepoButton disabled={submitting} onClick={onClickUpload}>
+            <RepoInput role="repoInput" type="text" onChange={onChangeUrl} />
+            <RepoButton
+              role="goButton"
+              disabled={submitting}
+              onClick={onClickUpload}
+            >
               <span>
                 <img src="/public_assets/buttonArrow.svg"></img>
               </span>
@@ -55,6 +59,7 @@ const Rending = () => {
             <SubInfo>choice your project</SubInfo>
             <ProjectButtonWrapper>
               <ProjectButtons
+                role="reactButton"
                 value="React"
                 isClick={first}
                 onMouseOver={onMouseOn}
@@ -62,6 +67,7 @@ const Rending = () => {
                 onClick={onClickFirst}
               />
               <ProjectButtons
+                role="nextButton"
                 value="Next"
                 isClick={second}
                 onMouseOver={onMouseOn}
@@ -79,7 +85,7 @@ const Rending = () => {
         <Footer>
           {new Array(200).fill(0).map((el, i) => (
             <Fragment key={uuidv4()}>
-              <RendingFooterGraph choose={first} />
+              <RendingFooterGraph role="footerBar" choose={first} />
             </Fragment>
           ))}
         </Footer>
