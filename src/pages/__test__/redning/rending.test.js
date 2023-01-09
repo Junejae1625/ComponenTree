@@ -3,6 +3,7 @@ import RendingPage from "../../Rending";
 import "@testing-library/jest-dom";
 import "jest-styled-components";
 import { BrowserRouter } from "react-router-dom";
+import ForceDirectedGraphPage from "../../ForceDirectedGraph";
 describe("메인페이지", () => {
   jest.spyOn(window, "alert").mockImplementation(() => {});
   it("Go버튼 테스트1", () => {
@@ -51,6 +52,31 @@ describe("메인페이지", () => {
     try {
       fireEvent.click(screen.getByRole("goButton"));
       await waitFor(() => {});
+    } catch (e) {
+      expect(e.matcherResult.message).toContain(
+        "프로젝트가 React인지 Next인지 다시 확인해주세요."
+      );
+    }
+  });
+  it("Go버튼 테스트4", async () => {
+    render(
+      <BrowserRouter>
+        <RendingPage />
+      </BrowserRouter>
+    );
+
+    fireEvent.change(screen.getByRole("repoInput"), {
+      target: {
+        value: "https://github.com/Junejae1625/Numble_reference.git",
+      },
+    });
+
+    fireEvent.click(screen.getByRole("nextButton"));
+    try {
+      fireEvent.click(screen.getByRole("goButton"));
+      await waitFor(() => {
+        <ForceDirectedGraphPage />;
+      });
     } catch (e) {
       expect(e.matcherResult.message).toContain(
         "프로젝트가 React인지 Next인지 다시 확인해주세요."
