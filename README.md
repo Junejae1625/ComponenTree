@@ -28,6 +28,7 @@
 | :-----: | :-----: |
 | express | 4.18.2  |
 
+Backend-repo : https://github.com/Junejae1625/ComponenTree-Backend.git
 <br>
 
 ## :alarm_clock: 프로젝트 기간
