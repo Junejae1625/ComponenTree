@@ -19,10 +19,13 @@ export const useOnClickRequest = (url, type) => {
     try {
       isSubmitting(true);
       type = type ? "src/App.tsx" : "pages";
-      const result = await axios.post("http://localhost:4000/upload", {
-        url,
-        type,
-      });
+      const result = await axios.post(
+        "https://backend.componentree.shop/upload",
+        {
+          url,
+          type,
+        }
+      );
       const componenTree = collection(
         getFirestore(firebaseApp),
         "componenTree"
