@@ -1,4 +1,3 @@
-import { resultNodes, resultLinks } from "../../datas/";
 import { useEffect, useRef, useState } from "react";
 import { Div, Svg } from "./forceDirectedGraphStyles";
 import { useResizeObserver } from "../../hooks/useResizeObserver";
@@ -14,10 +13,12 @@ import {
 } from "d3";
 import { useRecoilState } from "recoil";
 import { currentComponentIndexState } from "../../recoilStore";
+
 const ForceDirectedGraph = () => {
   const divRef = useRef(null);
   const svgRef = useRef(null);
   const dimensions = useResizeObserver(divRef);
+
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
   const [currentComponentIndex, setCurrentComponentIndex] = useRecoilState(
@@ -25,10 +26,14 @@ const ForceDirectedGraph = () => {
   );
   const colorSclae = scaleOrdinal(schemePastel1);
   useEffect(() => {
+    const result = JSON.parse(localStorage.getItem("resultData"));
+    setNodes(result.resultNode);
+    setLinks(result.resultLink);
+  }, []);
+  useEffect(() => {
     const svg = select(svgRef.current);
+
     if (!dimensions) return;
-    setNodes(resultNodes);
-    setLinks(resultLinks);
 
     const onClickTarget = (d, i) => {
       setCurrentComponentIndex(i.index);
@@ -44,7 +49,7 @@ const ForceDirectedGraph = () => {
       });
     };
 
-    const simulation = forceSimulation(resultNodes)
+    const simulation = forceSimulation(nodes)
       .force("charge", forceManyBody())
       .force(
         "link",
@@ -95,6 +100,7 @@ const ForceDirectedGraph = () => {
       .attr("text-anchor", "start")
       .attr("alignment-baseline", "bottom")
       .attr("font-weight", "bold")
+      .style("font-family", "sans-serif")
       .style("pointer-events", "none")
       .attr("dy", "15%")
       .text((data) => data.componentName);

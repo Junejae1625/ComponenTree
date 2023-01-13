@@ -1,4 +1,3 @@
-import { resultNodes } from "../../datas";
 import { axisBottom, scaleBand, scaleOrdinal, schemePastel1, select } from "d3";
 import { useEffect, useRef, useState } from "react";
 import { useResizeObserver } from "../../hooks/useResizeObserver";
@@ -11,9 +10,14 @@ const BarGraph = () => {
   const colorSclae = scaleOrdinal(schemePastel1);
 
   useEffect(() => {
+    const result = JSON.parse(localStorage.getItem("resultData"));
+    setNodes(result.resultNode);
+  }, []);
+
+  useEffect(() => {
     const svg = select(svgRef.current);
     if (!dimensions) return;
-    setNodes(resultNodes);
+
     const maxCount = Math.max(...nodes.map((e) => e.count));
     const minimumHeight = Math.floor((dimensions.height - 130) / maxCount);
     const xScale = scaleBand()

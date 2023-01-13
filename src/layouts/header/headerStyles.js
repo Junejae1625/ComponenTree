@@ -5,7 +5,22 @@ export const Wrapper = styled.nav`
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+`;
+export const HomeButton = styled.button`
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding-left: 35px;
+  cursor: pointer;
+  @media (min-width: 820px) {
+    display: none;
+  }
+`;
+export const ListWrapper = styled.div`
+  display: flex;
 `;
 
 export const Lists = styled.div`

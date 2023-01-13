@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
   padding: 2rem 0rem 0rem 2rem;
   overflow: hidden;
   position: relative;
+  @media (max-width: 820px) {
+    display: none;
+  }
 `;
 
 export const Header = styled.header`

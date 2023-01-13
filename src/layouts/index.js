@@ -22,7 +22,7 @@ const Main = styled.div`
   background-color: white;
   border-radius: 15px;
 `;
-const hiddenLayout = ["/loading", "/"];
+const hiddenLayout = ["/graph1", "/graph2", "/graph3"];
 
 const LayoutPage = ({ children }) => {
   const location = useLocation();
@@ -30,11 +30,10 @@ const LayoutPage = ({ children }) => {
 
   return (
     <Wrapper>
-      {!isHiddenLayout && <LayoutAside />}
+      {isHiddenLayout && <LayoutAside />}
       <MainWrapper>
-        {!isHiddenLayout && <LayoutHeader />}
-
-        <MainDiv customStyle={isHiddenLayout}>
+        {isHiddenLayout && <LayoutHeader />}
+        <MainDiv customStyle={!isHiddenLayout}>
           <Main>{children}</Main>
         </MainDiv>
       </MainWrapper>
