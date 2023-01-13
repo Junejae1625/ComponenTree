@@ -64,7 +64,7 @@ Backend-repo : https://github.com/Junejae1625/ComponenTree-Backend.git
 
 ## :pushpin: 위기 및 극복 방법
 
-git clone이 실행된 후 clone한 내부의 폴더구조를 읽어야 하는데 git clone 이 완료되기 전에 폴더를 읽어 오류가 발생하었습니다. 이를 해결하기 위해 new Promise() 내부에서 exec 명령어를 사용했습니다. 기존 해결방법으로는 `'exec('cd repo && mkdir ${UNIQUE} && cd ${UNIQUE} && git clone ${url} && ls', () => {})' `명령어를 사용했지만, new Promise()를 사용하여 git clone이 완료되는 시점까지를 동기화 해주었습니다. 이를 통해 어느시점에 에러가 발생하는지 자세히 파악할 수 있게 되었습니다.
+git clone이 실행된 후 clone한 내부의 폴더구조를 읽어야 하는데 git clone 이 완료되기 전에 폴더를 읽어 오류가 발생하였습니다. 이를 해결하기 위해 new Promise() 내부에서 exec 명령어를 사용했습니다. 기존 해결방법으로는 `'exec('cd repo && mkdir ${UNIQUE} && cd ${UNIQUE} && git clone ${url} && ls', () => {})' `명령어를 사용했지만, new Promise()를 사용하여 git clone이 완료되는 시점까지를 동기화 해주었습니다. 이를 통해 어느시점에 에러가 발생하는지 자세히 파악할 수 있게 되었습니다.
 
 <br>
 
